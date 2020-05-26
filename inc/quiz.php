@@ -82,13 +82,16 @@ if (count($_SESSION["used_indexes"]) === $total_questions){
     $display_score = true;
 } else {
     $display_score = false;
-    if (count($_SESSION["used_indexes"] === 0)){
+    if (count($_SESSION["used_indexes"]) === 0){
         $toast_msg = "";
         $_SESSION["total_correct"] = 0;
     }
-    $index = array_rand($questions);
+  
+    do {
+        $index = array_rand($questions);
+    } while (in_array($index,$_SESSION["used_indexes"]));
+    
     $question = $questions[$index];
-
     array_push($_SESSION["used_indexes"], $index);
 
     $answers = [
@@ -99,7 +102,5 @@ if (count($_SESSION["used_indexes"]) === $total_questions){
 
     shuffle($answers);
 }
-
-
 
 // session_destroy();
