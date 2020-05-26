@@ -39,7 +39,7 @@ include("inc/quiz.php");
         <?php 
             if ($display_score === true):   
         ?>
-            <p>You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
+            <p id="score">You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
         <?php 
             endif;
         ?>
