@@ -17,12 +17,14 @@ include("inc/quiz.php");
         <div id="quiz-box">
         <?php
             if (!empty($toast_message)){
-                echo "<p class='animate__animated animate__fadeOut animate__delay-3s'>
+                echo "<p class='animate__animated animate__fadeOut animate__delay-2s'>
                 $toast_message
                 </p>";
             }
         ?>
+        
         <?php 
+        // Display questions while game is ongoing
             if ($display_score === false):
         ?>
             <p class="breadcrumbs">Question <?php echo count($_SESSION["used_indexes"]); ?> of <?php echo $total_questions; ?></p>
@@ -36,10 +38,12 @@ include("inc/quiz.php");
         <?php 
             endif;
         ?>
+
         <?php 
+        // Hide questions an display score after all questions have been answered
             if ($display_score === true):   
         ?>
-            <p id="score">You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
+            <p id="score"class="animate__animated animate__bounceIn animate__delay-2s">You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
         <?php 
             endif;
         ?>
