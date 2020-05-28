@@ -20,18 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Create session variable to hold the indexes of questions already asked.
-if (!isset($_SESSION["used_indexes"])){
+if (!isset($_SESSION["used_indexes"])) {
     $_SESSION["used_indexes"] = [];
     $_SESSION["total_correct"] = 0;
 }
 
 // Display score if all questions have been answered
-if (count($_SESSION["used_indexes"]) === $total_questions){
+if (count($_SESSION["used_indexes"]) === $total_questions) {
     $_SESSION["used_indexes"] = [];
     $display_score = true;
 } else {
     $display_score = false;
-    if (count($_SESSION["used_indexes"]) === 0){
+    if (count($_SESSION["used_indexes"]) === 0) {
         $toast_msg = "";
         $_SESSION["total_correct"] = 0;
     }

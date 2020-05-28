@@ -10,13 +10,13 @@ include("inc/quiz.php");
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
     <div class="container">
         <div id="quiz-box">
         <?php
-            if (!empty($toast_message)){
+            if (!empty($toast_message)) {
                 echo "<p class='animate__animated animate__fadeOut animate__delay-2s'>
                 $toast_message
                 </p>";
@@ -40,7 +40,7 @@ include("inc/quiz.php");
         ?>
 
         <?php 
-        // Hide questions an display score after all questions have been answered
+        // Hide questions and display score after all questions have been answered
             if ($display_score === true):   
         ?>
             <p id="score"class="animate__animated animate__bounceIn animate__delay-2s">You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
