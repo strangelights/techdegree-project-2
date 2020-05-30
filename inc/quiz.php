@@ -3,15 +3,16 @@
 session_start();
 
 include("questions.php");
+include("generate_questions.php");
 
-$total_questions = count($questions);
+$total_questions = count($rand_questions);
 $display_score = false;
 $index = null;
 $question = null;
 
 //Check answer submission against answer key and display result via toast message
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_POST["answer"]== $questions[$_POST["index"]]["correctAnswer"]) {
+    if ($_POST["answer"]== $rand_questions[$_POST["index"]]["correctAnswer"]) {
         $toast_message = "Congratulations! Your answer is correct.";
         $_SESSION["total_correct"]++;
     } else {
@@ -38,10 +39,10 @@ if (count($_SESSION["used_indexes"]) === $total_questions) {
 
     // Prevent repeat questions
     do {
-        $index = array_rand($questions);
+        $index = array_rand($rand_questions);
     } while (in_array($index,$_SESSION["used_indexes"]));
 
-    $question = $questions[$index];
+    $question = $rand_questions[$index];
     array_push($_SESSION["used_indexes"], $index);
 
     $answers = [
