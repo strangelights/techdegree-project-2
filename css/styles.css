@@ -37,7 +37,8 @@ body {
 
 .toast-message{
     position: absolute; 
-    top: 33%;
+    top: 18%;
+    font-size: 2rem;
 
 }
 

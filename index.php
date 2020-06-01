@@ -17,7 +17,7 @@ include("inc/quiz.php");
     <div class="container"style ="display:none;">
         <?php
             if (!empty($toast_message)) {
-                echo "<p class='toast-message animate__animated animate__fadeOut animate__delay-2s'>$toast_message</p>";
+                echo "<p class='toast-message animate__animated animate__fadeOut animate__delay-1s'>$toast_message</p>";
             }
         ?>
         <div id="quiz-box">
@@ -41,8 +41,8 @@ include("inc/quiz.php");
         // Hide questions and display score after all questions have been answered
         if ($display_score === true):   
     ?>
-        <p id="score"class="animate__animated animate__bounceIn animate__delay-1s">You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
-        <a href="/index.php"><button class="btn animate__animated animate__fadeIn animate__delay-2s">Try Again<button</a>
+        <p id="score"class="animate__animated animate__bounceIn animate__delay-2s">You got <?php echo $_SESSION["total_correct"]; ?> of <?php echo $total_questions; ?> correct!</p>
+        <a href="/index.php"><button class="btn animate__animated animate__fadeIn animate__delay-3s">Try Again<button</a>
     <?php 
         endif;
     ?>
