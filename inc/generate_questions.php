@@ -20,7 +20,7 @@ function getRandQuestions($total) {
         $firstIncorrectAnswer = $correctAnswer + rand(-10,10);
         $secondIncorrectAnswer = $correctAnswer + rand(-10,10);
         
-        // Roll again if answers are duplciated 
+        // Roll again if answers are duplicated 
         if ($firstIncorrectAnswer === $secondIncorrectAnswer) {
             ++$secondIncorrectAnswer;
         }
