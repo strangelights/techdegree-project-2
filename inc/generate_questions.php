@@ -21,8 +21,16 @@ function getRandQuestions($total) {
         $secondIncorrectAnswer = $correctAnswer + rand(-10,10);
         
         // Roll again if answers are duplicated 
-        if ($firstIncorrectAnswer === $secondIncorrectAnswer) {
-            ++$secondIncorrectAnswer;
+        while ($firstIncorrectAnswer === $secondIncorrectAnswer) {
+            $firstIncorrectAnswer = $correctAnswer + rand(-10,10);
+        }
+        
+        while ($firstIncorrectAnswer === $correctAnswer){
+            $firstIncorrectAnswer = $correctAnswer + rand(-10,10);
+        }
+
+         while ($secondIncorrectAnswer === $correctAnswer){
+            $secondIncorrectAnswer = $correctAnswer + rand(-10,10);
         }
 
         // Add question and answer to questions array
